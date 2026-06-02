@@ -18,69 +18,70 @@
 
   .page {
     background: #F5EFE4;
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     border: 0.5px solid #D9CFC0;
     border-radius: 12px;
-    padding: 3rem 2.5rem;
+    padding: 3.5rem 3rem;
   }
 
   /* HEADER */
-  .header { text-align: center; margin-bottom: 2rem; }
+  .header { text-align: center; margin-bottom: 2.5rem; }
 
   .sc-title {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 400;
     letter-spacing: 0.45em;
     color: #3B1F0C;
     text-transform: uppercase;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
   }
 
   .by-text {
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 300;
     font-style: italic;
     color: #7A6450;
     letter-spacing: 0.1em;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
   }
 
-  .logo-wrap { margin-bottom: 0.5rem; }
+  .logo-wrap { margin-bottom: 0.6rem; }
 
   .ram-mono {
-    font-size: 72px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 96px;
     font-weight: 500;
     color: #1C1C1C;
     line-height: 1;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
   }
 
   .ram-name {
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: #1C1C1C;
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
   }
 
   .ram-est {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: #7A6450;
-    margin-top: 0.2rem;
+    margin-top: 0.5rem;
   }
 
   .gold-line {
-    width: 56px;
+    width: 60px;
     height: 0.5px;
     background: #C9A84C;
-    margin: 1.5rem auto 1rem;
+    margin: 1.8rem auto 1.2rem;
   }
 
   .page-sub {
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: #7A6450;
@@ -88,7 +89,7 @@
   }
 
   .updated {
-    font-size: 10px;
+    font-size: 13px;
     font-style: italic;
     color: #9E8F82;
     letter-spacing: 0.06em;
@@ -96,13 +97,13 @@
 
   /* SECTION */
   .section-title {
-    font-size: 10px;
-    letter-spacing: 0.32em;
+    font-size: 15px;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: #3B1F0C;
     font-weight: 500;
-    margin: 2.2rem 0 0.8rem;
-    padding-bottom: 0.4rem;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 0.5px solid #C9A84C;
   }
 
@@ -110,119 +111,131 @@
   .grades-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 0.5rem;
+    gap: 12px;
+    margin-bottom: 1rem;
   }
 
   .grade-card {
     background: #EDE5D8;
     border: 0.5px solid #D9CFC0;
     border-radius: 8px;
-    padding: 0.9rem 0.8rem;
+    padding: 1.1rem 1rem;
   }
 
   .grade-label {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #7A6450;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
   }
 
   .grade-name {
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 500;
     color: #3B1F0C;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
   }
 
   .grade-desc {
-    font-size: 11px;
+    font-size: 14px;
     color: #5C4A38;
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
   /* RATE TABLE */
+  .table-note {
+    font-size: 13px;
+    color: #9E8F82;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
   .rate-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
-    margin-bottom: 0.4rem;
+    font-size: 15px;
+    margin-bottom: 0.5rem;
   }
 
   .rate-table th {
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 12px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #7A6450;
-    font-weight: 400;
-    padding: 0.45rem 0.6rem;
+    font-weight: 600;
+    padding: 0.6rem 0.7rem;
     text-align: right;
-    border-bottom: 0.5px solid #D9CFC0;
+    border-bottom: 1px solid #C9A84C;
   }
 
   .rate-table th:first-child { text-align: left; }
 
+  .col-header-market {
+    color: #9E8F82;
+    font-weight: 400;
+  }
+
+  .col-header-sc {
+    color: #3B1F0C;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
   .rate-table td {
-    padding: 0.55rem 0.6rem;
+    padding: 0.65rem 0.7rem;
     border-bottom: 0.5px solid #EDE5D8;
     color: #3B1F0C;
     text-align: right;
+    font-size: 15px;
   }
 
   .rate-table td:first-child {
     text-align: left;
     font-weight: 500;
+    font-size: 15px;
   }
 
   .rate-table tr:last-child td { border-bottom: none; }
 
-  .rate-table .market-col { color: #7A6450; font-style: italic; }
-
-  .grade-a { color: #7A5C00; font-weight: 500; }
-  .grade-b { color: #2E4A5C; font-weight: 500; }
-  .grade-c { color: #6B5744; font-weight: 500; }
-
-  .col-header-market { color: #9E8F82 !important; }
-  .col-header-sc     { color: #3B1F0C !important; }
-
-  .floor-note {
-    font-size: 10px;
-    font-style: italic;
+  .market-col {
     color: #9E8F82;
-    margin-bottom: 1.2rem;
-    letter-spacing: 0.04em;
+    font-style: italic;
+    font-size: 14px;
   }
 
-  /* TWO-COL TABLE LAYOUT */
-  .table-note {
-    font-size: 10px;
-    color: #9E8F82;
+  .grade-a { color: #7A5C00; font-weight: 600; font-size: 16px; }
+  .grade-b { color: #2E4A5C; font-weight: 600; font-size: 16px; }
+  .grade-c { color: #6B5744; font-weight: 600; font-size: 16px; }
+
+  .floor-note {
+    font-size: 12px;
     font-style: italic;
-    margin-bottom: 0.6rem;
+    color: #9E8F82;
+    margin-bottom: 1.5rem;
     letter-spacing: 0.04em;
   }
 
   /* CONTACT */
   .contact-block {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
     border-top: 0.5px solid #C9A84C;
     text-align: center;
   }
 
   .contact-title {
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: #3B1F0C;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   .contact-line {
-    font-size: 13px;
+    font-size: 16px;
     color: #5C4A38;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
     letter-spacing: 0.04em;
   }
 
@@ -232,21 +245,46 @@
   }
 
   .footer-note {
-    font-size: 9px;
+    font-size: 12px;
     color: #9E8F82;
     font-style: italic;
-    letter-spacing: 0.08em;
-    line-height: 1.7;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
     text-align: center;
-    margin-top: 1.8rem;
+    margin-top: 2rem;
   }
 
-  @media (max-width: 520px) {
+  /* ELIGIBILITY */
+  .eligibility-block {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1.8rem;
+    background: #EDE5D8;
+    border: 0.5px solid #D9CFC0;
+    border-radius: 8px;
+  }
+
+  .eligibility-title {
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #3B1F0C;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .eligibility-text {
+    font-size: 14px;
+    color: #5C4A38;
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  @media (max-width: 560px) {
     .page { padding: 2rem 1.2rem; }
     .grades-grid { grid-template-columns: 1fr; }
-    .ram-mono { font-size: 52px; }
-    .rate-table { font-size: 11px; }
-    .rate-table th, .rate-table td { padding: 0.4rem 0.3rem; }
+    .rate-table { font-size: 13px; }
+    .rate-table th, .rate-table td { padding: 0.5rem 0.4rem; }
+    .grade-a, .grade-b, .grade-c { font-size: 14px; }
   }
 </style>
 </head>
@@ -445,11 +483,20 @@
     <p class="contact-line"><a href="mailto:rusticantlermarket@gmail.com">rusticantlermarket@gmail.com</a></p>
   </div>
 
+  <!-- ELIGIBILITY -->
+  <div class="eligibility-block">
+    <p class="eligibility-title">Collective Eligibility</p>
+    <p class="eligibility-text">
+      Participation in The Shed Collective is by invitation and approval only. Rates displayed on this page apply exclusively to approved Shed Collective members. Sellers and antlers must be located within 30 miles of Rustic Antler Market HQ in Dubois, ID to be eligible for the program. Rustic Antler Market reserves the right to approve, decline, or discontinue any consignment relationship at its sole discretion.
+    </p>
+    <p class="eligibility-text" style="margin-top: 0.8rem;">
+      For more information or to inquire about participation, please call us Monday–Friday, 9:00am–4:30pm.
+    </p>
+  </div>
+
   <p class="footer-note">
-    Rates shown are current SC payout rates per pound. Market reference prices sourced from Petska Fur.<br />
-    Variable rate sellers are subject to market-based adjustments with guaranteed floor pricing.<br />
-    Fixed rate sellers are locked at the rate active at time of inventory.<br />
-    All rates are per pound of antler weight.
+    Market reference prices reflect a composite rate based on regional buyer and seller activity across the Western U.S. antler market. Rates are reviewed and updated regularly to reflect current market conditions.<br /><br />
+    SC payout rates are guaranteed per pound for approved Collective members. Variable rate sellers are subject to market-based adjustments with guaranteed floor pricing. Fixed rate sellers are locked at the rate active at time of inventory. All rates are per pound of antler weight.
   </p>
 
 </div>
