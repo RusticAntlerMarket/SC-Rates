@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>R.A.M Market Rates — The Shed Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #EDE5D8;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #1C1C1C;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .page {
+    background: #F5EFE4;
+    max-width: 720px;
+    margin: 0 auto;
+    border: 0.5px solid #D9CFC0;
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
+  }
+
+  /* HEADER */
+  .header { text-align: center; margin-bottom: 2rem; }
+
+  .sc-title {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.45em;
+    color: #3B1F0C;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .by-text {
+    font-size: 11px;
+    font-weight: 300;
+    font-style: italic;
+    color: #7A6450;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+  }
+
+  .logo-wrap { margin-bottom: 0.5rem; }
+
+  .ram-mono {
+    font-size: 72px;
+    font-weight: 500;
+    color: #1C1C1C;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  .ram-name {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #1C1C1C;
+    margin-top: 0.25rem;
+  }
+
+  .ram-est {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #7A6450;
+    margin-top: 0.2rem;
+  }
+
+  .gold-line {
+    width: 56px;
+    height: 0.5px;
+    background: #C9A84C;
+    margin: 1.5rem auto 1rem;
+  }
+
+  .page-sub {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #7A6450;
+    margin-bottom: 0.5rem;
+  }
+
+  .updated {
+    font-size: 10px;
+    font-style: italic;
+    color: #9E8F82;
+    letter-spacing: 0.06em;
+  }
+
+  /* SECTION */
+  .section-title {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #3B1F0C;
+    font-weight: 500;
+    margin: 2.2rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 0.5px solid #C9A84C;
+  }
+
+  /* GRADE CARDS */
+  .grades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  .grade-card {
+    background: #EDE5D8;
+    border: 0.5px solid #D9CFC0;
+    border-radius: 8px;
+    padding: 0.9rem 0.8rem;
+  }
+
+  .grade-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #7A6450;
+    margin-bottom: 0.25rem;
+  }
+
+  .grade-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #3B1F0C;
+    margin-bottom: 0.4rem;
+  }
+
+  .grade-desc {
+    font-size: 11px;
+    color: #5C4A38;
+    line-height: 1.55;
+  }
+
+  /* RATE TABLE */
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 0.4rem;
+  }
+
+  .rate-table th {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7A6450;
+    font-weight: 400;
+    padding: 0.45rem 0.6rem;
+    text-align: right;
+    border-bottom: 0.5px solid #D9CFC0;
+  }
+
+  .rate-table th:first-child { text-align: left; }
+
+  .rate-table td {
+    padding: 0.55rem 0.6rem;
+    border-bottom: 0.5px solid #EDE5D8;
+    color: #3B1F0C;
+    text-align: right;
+  }
+
+  .rate-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .rate-table tr:last-child td { border-bottom: none; }
+
+  .rate-table .market-col { color: #7A6450; font-style: italic; }
+
+  .grade-a { color: #7A5C00; font-weight: 500; }
+  .grade-b { color: #2E4A5C; font-weight: 500; }
+  .grade-c { color: #6B5744; font-weight: 500; }
+
+  .col-header-market { color: #9E8F82 !important; }
+  .col-header-sc     { color: #3B1F0C !important; }
+
+  .floor-note {
+    font-size: 10px;
+    font-style: italic;
+    color: #9E8F82;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* TWO-COL TABLE LAYOUT */
+  .table-note {
+    font-size: 10px;
+    color: #9E8F82;
+    font-style: italic;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* CONTACT */
+  .contact-block {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid #C9A84C;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #3B1F0C;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-line {
+    font-size: 13px;
+    color: #5C4A38;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-line a {
+    color: #5C4A38;
+    text-decoration: none;
+  }
+
+  .footer-note {
+    font-size: 9px;
+    color: #9E8F82;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    text-align: center;
+    margin-top: 1.8rem;
+  }
+
+  @media (max-width: 520px) {
+    .page { padding: 2rem 1.2rem; }
+    .grades-grid { grid-template-columns: 1fr; }
+    .ram-mono { font-size: 52px; }
+    .rate-table { font-size: 11px; }
+    .rate-table th, .rate-table td { padding: 0.4rem 0.3rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <p class="sc-title">The Shed Collective</p>
+    <p class="by-text">by</p>
+    <div class="logo-wrap">
+      <div class="ram-mono">RАМ</div>
+      <p class="ram-name">Rustic Antler Market™</p>
+      <p class="ram-est">Est. 2025 &nbsp;|&nbsp; Dubois, ID</p>
+    </div>
+    <div class="gold-line"></div>
+    <p class="page-sub">Seller Rate Card</p>
+    <p class="updated">Rates effective June 2026</p>
+  </div>
+
+  <!-- GRADE DEFINITIONS -->
+  <p class="section-title">Grade Definitions</p>
+  <div class="grades-grid">
+    <div class="grade-card">
+      <p class="grade-label">Grade A</p>
+      <p class="grade-name">Premium Brown</p>
+      <p class="grade-desc">Gathered same season as shed. Rich natural brown color. Solid, hard, premium quality.</p>
+    </div>
+    <div class="grade-card">
+      <p class="grade-label">Grade B</p>
+      <p class="grade-name">Weathered White</p>
+      <p class="grade-desc">Gathered 1+ year after shed. Sun-bleached with some cracks. Still solid but slightly weathered.</p>
+    </div>
+    <div class="grade-card">
+      <p class="grade-label">Grade C</p>
+      <p class="grade-name">Aged &amp; Rustic</p>
+      <p class="grade-desc">Gathered 2+ years after shed. White, chalky, often naturally chewed. Softer texture with authentic rustic character.</p>
+    </div>
+  </div>
+
+  <p class="table-note">Market reference prices shown in italics. SC payout is your guaranteed rate per pound.</p>
+
+  <!-- ELK -->
+  <p class="section-title">Elk</p>
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-header-market">Market A</th>
+        <th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th>
+        <th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th>
+        <th class="col-header-sc">SC C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single</td>
+        <td class="market-col">$14.00</td>
+        <td class="grade-a">$20.00</td>
+        <td class="market-col">$11.50</td>
+        <td class="grade-b">$16.00</td>
+        <td class="market-col">$2.00</td>
+        <td class="grade-c">$4.00</td>
+      </tr>
+      <tr>
+        <td>Matched Set</td>
+        <td class="market-col">$14.00</td>
+        <td class="grade-a">$25.00</td>
+        <td class="market-col">$11.50</td>
+        <td class="grade-b">$16.00</td>
+        <td class="market-col">$2.00</td>
+        <td class="grade-c">$4.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="floor-note">* Floor prices: Grade A $16/lb · Grade B $11/lb · Grade C $2/lb</p>
+
+  <!-- MOOSE -->
+  <p class="section-title">Moose</p>
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-header-market">Market A</th>
+        <th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th>
+        <th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th>
+        <th class="col-header-sc">SC C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single</td>
+        <td class="market-col">$10.00</td>
+        <td class="grade-a">$20.00</td>
+        <td class="market-col">$7.00</td>
+        <td class="grade-b">$16.00</td>
+        <td class="market-col">$1.00</td>
+        <td class="grade-c">$4.00</td>
+      </tr>
+      <tr>
+        <td>Matched Set</td>
+        <td class="market-col">$10.00</td>
+        <td class="grade-a">$25.00</td>
+        <td class="market-col">$7.00</td>
+        <td class="grade-b">$16.00</td>
+        <td class="market-col">$1.00</td>
+        <td class="grade-c">$4.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="floor-note">* Floor prices: Grade A $16/lb · Grade B $11/lb · Grade C $2/lb</p>
+
+  <!-- MULE DEER -->
+  <p class="section-title">Mule Deer</p>
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-header-market">Market A</th>
+        <th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th>
+        <th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th>
+        <th class="col-header-sc">SC C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single</td>
+        <td class="market-col">$11.00</td>
+        <td class="grade-a">$16.00</td>
+        <td class="market-col">$8.00</td>
+        <td class="grade-b">$11.00</td>
+        <td class="market-col">$1.00</td>
+        <td class="grade-c">$3.00</td>
+      </tr>
+      <tr>
+        <td>Matched Set</td>
+        <td class="market-col">$11.00</td>
+        <td class="grade-a">$18.00</td>
+        <td class="market-col">$8.00</td>
+        <td class="grade-b">$12.00</td>
+        <td class="market-col">$1.00</td>
+        <td class="grade-c">$3.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="floor-note">* Floor prices: Grade A $13/lb · Grade B $8/lb · Grade C $2/lb</p>
+
+  <!-- WHITETAIL DEER -->
+  <p class="section-title">Whitetail Deer</p>
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-header-market">Market A</th>
+        <th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th>
+        <th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th>
+        <th class="col-header-sc">SC C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single</td>
+        <td class="market-col">$11.00</td>
+        <td class="grade-a">$16.00</td>
+        <td class="market-col">$8.00</td>
+        <td class="grade-b">$11.00</td>
+        <td class="market-col">$1.00</td>
+        <td class="grade-c">$3.00</td>
+      </tr>
+      <tr>
+        <td>Matched Set</td>
+        <td class="market-col">$11.00</td>
+        <td class="grade-a">$18.00</td>
+        <td class="market-col">$8.00</td>
+        <td class="grade-b">$12.00</td>
+        <td class="market-col">$1.00</td>
+        <td class="grade-c">$3.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="floor-note">* Floor prices: Grade A $13/lb · Grade B $8/lb · Grade C $2/lb</p>
+
+  <!-- CONTACT -->
+  <div class="contact-block">
+    <p class="contact-title">Contact Us</p>
+    <p class="contact-line">93 W. Main · Dubois, ID 83423</p>
+    <p class="contact-line"><a href="tel:2083745226">(208) 374-5226</a></p>
+    <p class="contact-line"><a href="mailto:rusticantlermarket@gmail.com">rusticantlermarket@gmail.com</a></p>
+  </div>
+
+  <p class="footer-note">
+    Rates shown are current SC payout rates per pound. Market reference prices sourced from Petska Fur.<br />
+    Variable rate sellers are subject to market-based adjustments with guaranteed floor pricing.<br />
+    Fixed rate sellers are locked at the rate active at time of inventory.<br />
+    All rates are per pound of antler weight.
+  </p>
+
+</div>
+</body>
+</html>
