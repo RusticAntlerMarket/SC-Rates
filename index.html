@@ -279,12 +279,71 @@
     font-style: italic;
   }
 
+  /* Mobile rate cards — hidden on desktop */
+  .mobile-rates { display: none; }
+
   @media (max-width: 560px) {
-    .page { padding: 2rem 1.2rem; }
+    .page { padding: 2rem 1rem; }
     .grades-grid { grid-template-columns: 1fr; }
-    .rate-table { font-size: 13px; }
-    .rate-table th, .rate-table td { padding: 0.5rem 0.4rem; }
-    .grade-a, .grade-b, .grade-c { font-size: 14px; }
+
+    /* Hide desktop table on mobile */
+    .rate-table { display: none; }
+
+    /* Show mobile rate cards instead */
+    .mobile-rates { display: block; }
+  }
+
+  .mobile-type-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3B1F0C;
+    letter-spacing: 0.08em;
+    margin: 0.8rem 0 0.4rem;
+  }
+
+  .mobile-grade-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 0;
+    border-bottom: 0.5px solid #EDE5D8;
+  }
+
+  .mobile-grade-row:last-child { border-bottom: none; }
+
+  .mobile-grade-label {
+    font-size: 13px;
+    color: #7A6450;
+    letter-spacing: 0.06em;
+  }
+
+  .mobile-prices {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .mobile-market {
+    font-size: 13px;
+    color: #9E8F82;
+    font-style: italic;
+  }
+
+  .mobile-sc {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .mobile-sc.a { color: #7A5C00; }
+  .mobile-sc.b { color: #2E4A5C; }
+  .mobile-sc.c { color: #6B5744; }
+
+  .mobile-block {
+    background: #EDE5D8;
+    border: 0.5px solid #D9CFC0;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
   }
 </style>
 </head>
@@ -333,35 +392,30 @@
     <thead>
       <tr>
         <th></th>
-        <th class="col-header-market">Market A</th>
-        <th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th>
-        <th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th>
-        <th class="col-header-sc">SC C</th>
+        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Single</td>
-        <td class="market-col">$14.00</td>
-        <td class="grade-a">$20.00</td>
-        <td class="market-col">$11.50</td>
-        <td class="grade-b">$16.00</td>
-        <td class="market-col">$2.00</td>
-        <td class="grade-c">$4.00</td>
-      </tr>
-      <tr>
-        <td>Matched Set</td>
-        <td class="market-col">$14.00</td>
-        <td class="grade-a">$25.00</td>
-        <td class="market-col">$11.50</td>
-        <td class="grade-b">$16.00</td>
-        <td class="market-col">$2.00</td>
-        <td class="grade-c">$4.00</td>
-      </tr>
+      <tr><td>Single</td><td class="market-col">$14.00</td><td class="grade-a">$20.00</td><td class="market-col">$11.50</td><td class="grade-b">$16.00</td><td class="market-col">$2.00</td><td class="grade-c">$4.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col">$14.00</td><td class="grade-a">$25.00</td><td class="market-col">$11.50</td><td class="grade-b">$16.00</td><td class="market-col">$2.00</td><td class="grade-c">$4.00</td></tr>
     </tbody>
   </table>
+  <div class="mobile-rates">
+    <p class="mobile-type-label">Single</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $14.00</span><span class="mobile-sc a">SC $20.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.50</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $2.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+    </div>
+    <p class="mobile-type-label">Matched Set</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $14.00</span><span class="mobile-sc a">SC $25.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.50</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $2.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+    </div>
+  </div>
   <p class="floor-note">* Floor prices: Grade A $16/lb · Grade B $11/lb · Grade C $2/lb</p>
 
   <!-- MOOSE -->
@@ -370,35 +424,30 @@
     <thead>
       <tr>
         <th></th>
-        <th class="col-header-market">Market A</th>
-        <th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th>
-        <th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th>
-        <th class="col-header-sc">SC C</th>
+        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Single</td>
-        <td class="market-col">$10.00</td>
-        <td class="grade-a">$20.00</td>
-        <td class="market-col">$7.00</td>
-        <td class="grade-b">$16.00</td>
-        <td class="market-col">$1.00</td>
-        <td class="grade-c">$4.00</td>
-      </tr>
-      <tr>
-        <td>Matched Set</td>
-        <td class="market-col">$10.00</td>
-        <td class="grade-a">$25.00</td>
-        <td class="market-col">$7.00</td>
-        <td class="grade-b">$16.00</td>
-        <td class="market-col">$1.00</td>
-        <td class="grade-c">$4.00</td>
-      </tr>
+      <tr><td>Single</td><td class="market-col">$10.00</td><td class="grade-a">$20.00</td><td class="market-col">$7.00</td><td class="grade-b">$16.00</td><td class="market-col">$1.00</td><td class="grade-c">$4.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col">$10.00</td><td class="grade-a">$25.00</td><td class="market-col">$7.00</td><td class="grade-b">$16.00</td><td class="market-col">$1.00</td><td class="grade-c">$4.00</td></tr>
     </tbody>
   </table>
+  <div class="mobile-rates">
+    <p class="mobile-type-label">Single</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $10.00</span><span class="mobile-sc a">SC $20.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $7.00</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+    </div>
+    <p class="mobile-type-label">Matched Set</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $10.00</span><span class="mobile-sc a">SC $25.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $7.00</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+    </div>
+  </div>
   <p class="floor-note">* Floor prices: Grade A $16/lb · Grade B $11/lb · Grade C $2/lb</p>
 
   <!-- MULE DEER -->
@@ -407,35 +456,30 @@
     <thead>
       <tr>
         <th></th>
-        <th class="col-header-market">Market A</th>
-        <th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th>
-        <th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th>
-        <th class="col-header-sc">SC C</th>
+        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Single</td>
-        <td class="market-col">$11.00</td>
-        <td class="grade-a">$16.00</td>
-        <td class="market-col">$8.00</td>
-        <td class="grade-b">$11.00</td>
-        <td class="market-col">$1.00</td>
-        <td class="grade-c">$3.00</td>
-      </tr>
-      <tr>
-        <td>Matched Set</td>
-        <td class="market-col">$11.00</td>
-        <td class="grade-a">$18.00</td>
-        <td class="market-col">$8.00</td>
-        <td class="grade-b">$12.00</td>
-        <td class="market-col">$1.00</td>
-        <td class="grade-c">$3.00</td>
-      </tr>
+      <tr><td>Single</td><td class="market-col">$11.00</td><td class="grade-a">$16.00</td><td class="market-col">$8.00</td><td class="grade-b">$11.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col">$11.00</td><td class="grade-a">$18.00</td><td class="market-col">$8.00</td><td class="grade-b">$12.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
     </tbody>
   </table>
+  <div class="mobile-rates">
+    <p class="mobile-type-label">Single</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $11.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+    </div>
+    <p class="mobile-type-label">Matched Set</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $18.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $12.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+    </div>
+  </div>
   <p class="floor-note">* Floor prices: Grade A $13/lb · Grade B $8/lb · Grade C $2/lb</p>
 
   <!-- WHITETAIL DEER -->
@@ -444,35 +488,30 @@
     <thead>
       <tr>
         <th></th>
-        <th class="col-header-market">Market A</th>
-        <th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th>
-        <th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th>
-        <th class="col-header-sc">SC C</th>
+        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
+        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
+        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Single</td>
-        <td class="market-col">$11.00</td>
-        <td class="grade-a">$16.00</td>
-        <td class="market-col">$8.00</td>
-        <td class="grade-b">$11.00</td>
-        <td class="market-col">$1.00</td>
-        <td class="grade-c">$3.00</td>
-      </tr>
-      <tr>
-        <td>Matched Set</td>
-        <td class="market-col">$11.00</td>
-        <td class="grade-a">$18.00</td>
-        <td class="market-col">$8.00</td>
-        <td class="grade-b">$12.00</td>
-        <td class="market-col">$1.00</td>
-        <td class="grade-c">$3.00</td>
-      </tr>
+      <tr><td>Single</td><td class="market-col">$11.00</td><td class="grade-a">$16.00</td><td class="market-col">$8.00</td><td class="grade-b">$11.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col">$11.00</td><td class="grade-a">$18.00</td><td class="market-col">$8.00</td><td class="grade-b">$12.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
     </tbody>
   </table>
+  <div class="mobile-rates">
+    <p class="mobile-type-label">Single</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $11.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+    </div>
+    <p class="mobile-type-label">Matched Set</p>
+    <div class="mobile-block">
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $18.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $12.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+    </div>
+  </div>
   <p class="floor-note">* Floor prices: Grade A $13/lb · Grade B $8/lb · Grade C $2/lb</p>
 
   <!-- CONTACT -->
