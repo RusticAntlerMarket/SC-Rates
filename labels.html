@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Shed Collective — SKU Labels</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #eee;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Controls bar — hidden on print */
+  .controls {
+    padding: 14px 20px;
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .controls h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .controls .meta {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    opacity: 0.75;
+  }
+  .print-btn {
+    background: #fff;
+    color: #222;
+    border: none;
+    padding: 8px 22px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .print-btn:hover { background: #ddd; }
+
+  /* Label sheet */
+  .sheet {
+    width: 8.5in;
+    margin: 0.3in auto;
+    display: grid;
+    grid-template-columns: 4in 4in;
+    grid-auto-rows: 2in;
+    gap: 0;
+    padding: 0.5in 0.19in;
+  }
+
+  /* Single label — Avery 5263: 4" wide × 2" tall */
+  .label {
+    width: 4in;
+    height: 2in;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border: 0.5px dashed #999;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  /* Left column: logo + brand name */
+  .label-left {
+    flex: 0 0 1.55in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.12in 0.1in 0.12in 0.14in;
+    border-right: 0.5px solid #ccc;
+    gap: 0.06in;
+  }
+
+  .label-logo {
+    width: 1.1in;
+    height: auto;
+    display: block;
+    filter: grayscale(100%);
+  }
+
+  .label-brand {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 8pt;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* Right column: QR + SKU */
+  .label-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1in 0.12in;
+    gap: 0.05in;
+  }
+
+  .label-qr img {
+    width: 1.2in;
+    height: 1.2in;
+    display: block;
+  }
+
+  .label-sku {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-align: center;
+  }
+
+  /* Error / info states */
+  .info-page {
+    width: 8.5in;
+    margin: 1in auto;
+    text-align: center;
+    color: #000;
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+  .info-page h1 { font-size: 28px; margin-bottom: 12px; }
+  .info-page p { font-size: 15px; color: #555; }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff; }
+    .controls { display: none; }
+    .sheet {
+      margin: 0;
+      padding: 0.5in 0.19in;
+      width: 8.5in;
+    }
+    .label {
+      border: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="controls" id="controls">
+  <h2>The Shed Collective — SKU Labels</h2>
+  <span class="meta" id="metaInfo"></span>
+  <button class="print-btn" onclick="window.print()">Print Labels</button>
+</div>
+
+<div id="content"></div>
+
+<script>
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbxHCrtXLhrFPx_oIwrDkjZKe6cxmxZGWVmtgqRyTGdjEw0S-tQZVRtp2ODziY8KQ9xW/exec';
+
+  var prefixMap = { 'Elk': 1000, 'Mule Deer': 2000, 'Whitetail Deer': 3000, 'Moose': 4000 };
+
+  function getParam(name) {
+    var url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  function buildLabels() {
+    var species  = getParam('species')  || 'Elk';
+    var startNum = parseInt(getParam('startNum')) || 1;
+    var quantity = parseInt(getParam('quantity')) || 10;
+    var prefix   = prefixMap[species];
+
+    if (!prefix) {
+      document.getElementById('content').innerHTML = '<div class="info-page"><h1>Unknown Species</h1><p>Please return to the sheet and try again.</p></div>';
+      return;
+    }
+
+    quantity = Math.min(quantity, 100);
+
+    document.getElementById('metaInfo').textContent =
+      species + '  ·  SKU ' + prefix + '-' + startNum + ' to ' + prefix + '-' + (startNum + quantity - 1) + '  ·  ' + quantity + ' label' + (quantity !== 1 ? 's' : '');
+
+    var labels = [];
+    for (var i = 0; i < quantity; i++) {
+      var num = startNum + i;
+      var sku = prefix + '-' + num;
+      var qrData = GAS_URL + '?sku=' + encodeURIComponent(sku);
+      var qrUrl  = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(qrData);
+      labels.push({ sku: sku, qrUrl: qrUrl });
+    }
+
+    // Build sheets of 10
+    var html = '';
+    for (var s = 0; s < labels.length; s += 10) {
+      html += '<div class="sheet">';
+      var pageLabels = labels.slice(s, s + 10);
+      for (var j = 0; j < pageLabels.length; j++) {
+        var l = pageLabels[j];
+        html += '<div class="label">' +
+          '<div class="label-left">' +
+            '<img class="label-logo" src="ram-logo.png" alt="Rustic Antler Market" onerror="this.style.display=\'none\'">' +
+            '<div class="label-brand">The Shed<br>Collective</div>' +
+          '</div>' +
+          '<div class="label-right">' +
+            '<div class="label-qr"><img src="' + l.qrUrl + '" alt="QR ' + l.sku + '"></div>' +
+            '<div class="label-sku">' + l.sku + '</div>' +
+          '</div>' +
+        '</div>';
+      }
+      // Pad to 10 if last sheet is short
+      for (var k = pageLabels.length; k < 10; k++) {
+        html += '<div class="label" style="border-color:transparent;"></div>';
+      }
+      html += '</div>';
+    }
+
+    document.getElementById('content').innerHTML = html;
+  }
+
+  buildLabels();
+</script>
+</body>
+</html>
