@@ -192,7 +192,7 @@
     var labels = [];
     for (var i = 0; i < quantity; i++) {
       var num = startNum + i;
-      var sku = prefix + '-' + num;
+      var sku = prefix + '-' + num + '-SC';
       var qrData = GAS_URL + '?sku=' + encodeURIComponent(sku);
       var qrUrl  = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(qrData);
       labels.push({ sku: sku, qrUrl: qrUrl });
