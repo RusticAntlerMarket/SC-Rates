@@ -226,7 +226,11 @@
     document.getElementById('content').innerHTML = html;
   }
 
-  buildLabels();
+var species  = getParam('species') || 'Elk';
+var startNum = parseInt(getParam('startNum')) || 1;
+var quantity = Math.min(parseInt(getParam('quantity')) || 10, 100);
+buildLabels();
+fetch(GAS_URL + '?action=log&species=' + encodeURIComponent(species) + '&startNum=' + startNum + '&quantity=' + quantity, { mode: 'no-cors' }).catch(function() {});
 </script>
 </body>
 </html>
