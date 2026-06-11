@@ -7,350 +7,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: #EDE5D8;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    color: #1C1C1C;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-
-  .page {
-    background: #F5EFE4;
-    max-width: 760px;
-    margin: 0 auto;
-    border: 0.5px solid #D9CFC0;
-    border-radius: 12px;
-    padding: 3.5rem 3rem;
-  }
-
-  /* HEADER */
+  body { background: #EDE5D8; font-family: 'Cormorant Garamond', Georgia, serif; color: #1C1C1C; min-height: 100vh; padding: 2rem 1rem; }
+  .page { background: #F5EFE4; max-width: 760px; margin: 0 auto; border: 0.5px solid #D9CFC0; border-radius: 12px; padding: 3.5rem 3rem; }
   .header { text-align: center; margin-bottom: 2.5rem; }
-
-  .sc-title {
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 0.45em;
-    color: #3B1F0C;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-
-  .by-text {
-    font-size: 14px;
-    font-weight: 300;
-    font-style: italic;
-    color: #7A6450;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.4rem;
-  }
-
+  .sc-title { font-size: 15px; font-weight: 400; letter-spacing: 0.45em; color: #3B1F0C; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .by-text { font-size: 14px; font-weight: 300; font-style: italic; color: #7A6450; letter-spacing: 0.1em; margin-bottom: 1.4rem; }
   .logo-wrap { margin-bottom: 0.6rem; }
-
-  .ram-mono {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 96px;
-    font-weight: 500;
-    color: #1C1C1C;
-    line-height: 1;
-    letter-spacing: -3px;
-  }
-
-  .ram-name {
-    font-size: 13px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: #1C1C1C;
-    margin-top: 0.3rem;
-  }
-
-  .ram-est {
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #7A6450;
-    margin-top: 0.5rem;
-  }
-
-  .gold-line {
-    width: 60px;
-    height: 0.5px;
-    background: #C9A84C;
-    margin: 1.8rem auto 1.2rem;
-  }
-
-  .page-sub {
-    font-size: 13px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #7A6450;
-    margin-bottom: 0.5rem;
-  }
-
-  .updated {
-    font-size: 13px;
-    font-style: italic;
-    color: #9E8F82;
-    letter-spacing: 0.06em;
-  }
-
-  /* SECTION */
-  .section-title {
-    font-size: 15px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #3B1F0C;
-    font-weight: 500;
-    margin: 2.5rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 0.5px solid #C9A84C;
-  }
-
-  /* GRADE CARDS */
-  .grades-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 1rem;
-  }
-
-  .grade-card {
-    background: #EDE5D8;
-    border: 0.5px solid #D9CFC0;
-    border-radius: 8px;
-    padding: 1.1rem 1rem;
-  }
-
-  .grade-label {
-    font-size: 12px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #7A6450;
-    margin-bottom: 0.3rem;
-  }
-
-  .grade-name {
-    font-size: 17px;
-    font-weight: 500;
-    color: #3B1F0C;
-    margin-bottom: 0.5rem;
-  }
-
-  .grade-desc {
-    font-size: 14px;
-    color: #5C4A38;
-    line-height: 1.6;
-  }
-
-  /* RATE TABLE */
-  .table-note {
-    font-size: 13px;
-    color: #9E8F82;
-    font-style: italic;
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.04em;
-  }
-
-  .rate-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 15px;
-    margin-bottom: 0.5rem;
-  }
-
-  .rate-table th {
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 0.6rem 0.7rem;
-    text-align: right;
-    border-bottom: 1px solid #C9A84C;
-  }
-
+  .ram-est { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A6450; margin-top: 0.5rem; }
+  .gold-line { width: 60px; height: 0.5px; background: #C9A84C; margin: 1.8rem auto 1.2rem; }
+  .page-sub { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #7A6450; margin-bottom: 0.5rem; }
+  .updated { font-size: 13px; font-style: italic; color: #9E8F82; letter-spacing: 0.06em; }
+  .section-title { font-size: 15px; letter-spacing: 0.28em; text-transform: uppercase; color: #3B1F0C; font-weight: 500; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid #C9A84C; }
+  .grades-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1rem; }
+  .grade-card { background: #EDE5D8; border: 0.5px solid #D9CFC0; border-radius: 8px; padding: 1.1rem 1rem; }
+  .grade-label { font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; color: #7A6450; margin-bottom: 0.3rem; }
+  .grade-name { font-size: 17px; font-weight: 500; color: #3B1F0C; margin-bottom: 0.5rem; }
+  .grade-desc { font-size: 14px; color: #5C4A38; line-height: 1.6; }
+  .table-note { font-size: 13px; color: #9E8F82; font-style: italic; margin-bottom: 0.8rem; letter-spacing: 0.04em; }
+  .rate-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-bottom: 0.5rem; }
+  .rate-table th { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; padding: 0.6rem 0.7rem; text-align: right; border-bottom: 1px solid #C9A84C; }
   .rate-table th:first-child { text-align: left; }
-
-  .col-header-market {
-    color: #9E8F82;
-    font-weight: 400;
-  }
-
-  .col-header-sc {
-    color: #3B1F0C;
-    font-weight: 600;
-    font-size: 13px;
-  }
-
-  .rate-table td {
-    padding: 0.65rem 0.7rem;
-    border-bottom: 0.5px solid #EDE5D8;
-    color: #3B1F0C;
-    text-align: right;
-    font-size: 15px;
-  }
-
-  .rate-table td:first-child {
-    text-align: left;
-    font-weight: 500;
-    font-size: 15px;
-  }
-
+  .col-header-market { color: #9E8F82; font-weight: 400; }
+  .col-header-sc { color: #3B1F0C; font-weight: 600; font-size: 13px; }
+  .rate-table td { padding: 0.65rem 0.7rem; border-bottom: 0.5px solid #EDE5D8; color: #3B1F0C; text-align: right; font-size: 15px; }
+  .rate-table td:first-child { text-align: left; font-weight: 500; font-size: 15px; }
   .rate-table tr:last-child td { border-bottom: none; }
-
-  .market-col {
-    color: #9E8F82;
-    font-style: italic;
-    font-size: 14px;
-  }
-
+  .market-col { color: #9E8F82; font-style: italic; font-size: 14px; }
   .grade-a { color: #7A5C00; font-weight: 600; font-size: 16px; }
   .grade-b { color: #2E4A5C; font-weight: 600; font-size: 16px; }
   .grade-c { color: #6B5744; font-weight: 600; font-size: 16px; }
-
-  .floor-note {
-    font-size: 12px;
-    font-style: italic;
-    color: #9E8F82;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.04em;
-  }
-
-  /* CONTACT */
-  .contact-block {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 0.5px solid #C9A84C;
-    text-align: center;
-  }
-
-  .contact-title {
-    font-size: 13px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #3B1F0C;
-    margin-bottom: 1rem;
-  }
-
-  .contact-line {
-    font-size: 16px;
-    color: #5C4A38;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.04em;
-  }
-
-  .contact-line a {
-    color: #5C4A38;
-    text-decoration: none;
-  }
-
-  .footer-note {
-    font-size: 12px;
-    color: #9E8F82;
-    font-style: italic;
-    letter-spacing: 0.06em;
-    line-height: 1.8;
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  /* ELIGIBILITY */
-  .eligibility-block {
-    margin-top: 2.5rem;
-    padding: 1.5rem 1.8rem;
-    background: #EDE5D8;
-    border: 0.5px solid #D9CFC0;
-    border-radius: 8px;
-  }
-
-  .eligibility-title {
-    font-size: 13px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #3B1F0C;
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-  }
-
-  .eligibility-text {
-    font-size: 14px;
-    color: #5C4A38;
-    line-height: 1.75;
-    font-style: italic;
-  }
-
-  /* Mobile rate cards — hidden on desktop */
+  .floor-note { font-size: 12px; font-style: italic; color: #9E8F82; margin-bottom: 1.5rem; letter-spacing: 0.04em; }
+  .contact-block { margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid #C9A84C; text-align: center; }
+  .contact-title { font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #3B1F0C; margin-bottom: 1rem; }
+  .contact-line { font-size: 16px; color: #5C4A38; margin-bottom: 0.4rem; letter-spacing: 0.04em; }
+  .contact-line a { color: #5C4A38; text-decoration: none; }
+  .footer-note { font-size: 12px; color: #9E8F82; font-style: italic; letter-spacing: 0.06em; line-height: 1.8; text-align: center; margin-top: 2rem; }
+  .eligibility-block { margin-top: 2.5rem; padding: 1.5rem 1.8rem; background: #EDE5D8; border: 0.5px solid #D9CFC0; border-radius: 8px; }
+  .eligibility-title { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #3B1F0C; font-weight: 500; margin-bottom: 0.8rem; }
+  .eligibility-text { font-size: 14px; color: #5C4A38; line-height: 1.75; font-style: italic; }
   .mobile-rates { display: none; }
-
   @media (max-width: 560px) {
     .page { padding: 2rem 1rem; }
     .grades-grid { grid-template-columns: 1fr; }
-
-    /* Hide desktop table on mobile */
     .rate-table { display: none; }
-
-    /* Show mobile rate cards instead */
     .mobile-rates { display: block; }
   }
-
-  .mobile-type-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #3B1F0C;
-    letter-spacing: 0.08em;
-    margin: 0.8rem 0 0.4rem;
-  }
-
-  .mobile-grade-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.55rem 0;
-    border-bottom: 0.5px solid #EDE5D8;
-  }
-
+  .mobile-type-label { font-size: 14px; font-weight: 500; color: #3B1F0C; letter-spacing: 0.08em; margin: 0.8rem 0 0.4rem; }
+  .mobile-grade-row { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 0; border-bottom: 0.5px solid #EDE5D8; }
   .mobile-grade-row:last-child { border-bottom: none; }
-
-  .mobile-grade-label {
-    font-size: 13px;
-    color: #7A6450;
-    letter-spacing: 0.06em;
-  }
-
-  .mobile-prices {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .mobile-market {
-    font-size: 13px;
-    color: #9E8F82;
-    font-style: italic;
-  }
-
-  .mobile-sc {
-    font-size: 15px;
-    font-weight: 600;
-  }
-
+  .mobile-grade-label { font-size: 13px; color: #7A6450; letter-spacing: 0.06em; }
+  .mobile-prices { display: flex; gap: 1rem; align-items: center; }
+  .mobile-market { font-size: 13px; color: #9E8F82; font-style: italic; }
+  .mobile-sc { font-size: 15px; font-weight: 600; }
   .mobile-sc.a { color: #7A5C00; }
   .mobile-sc.b { color: #2E4A5C; }
   .mobile-sc.c { color: #6B5744; }
-
-  .mobile-block {
-    background: #EDE5D8;
-    border: 0.5px solid #D9CFC0;
-    border-radius: 8px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 0.5rem;
-  }
+  .mobile-block { background: #EDE5D8; border: 0.5px solid #D9CFC0; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 0.5rem; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
   <div class="header">
     <p class="sc-title">The Shed Collective</p>
     <p class="by-text">by</p>
@@ -360,10 +77,9 @@
     </div>
     <div class="gold-line"></div>
     <p class="page-sub">Seller Rate Card</p>
-    <p class="updated">Rates effective June 2026</p>
+    <p class="updated" id="rates-date">Rates effective June 2026</p>
   </div>
 
-  <!-- GRADE DEFINITIONS -->
   <p class="section-title">Grade Definitions</p>
   <div class="grades-grid">
     <div class="grade-card">
@@ -388,31 +104,24 @@
   <!-- ELK -->
   <p class="section-title">Elk</p>
   <table class="rate-table">
-    <thead>
-      <tr>
-        <th></th>
-        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
-      </tr>
-    </thead>
+    <thead><tr><th></th><th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th><th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th><th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th></tr></thead>
     <tbody>
-      <tr><td>Single</td><td class="market-col">$14.00</td><td class="grade-a">$20.00</td><td class="market-col">$11.50</td><td class="grade-b">$16.00</td><td class="market-col">$2.00</td><td class="grade-c">$4.00</td></tr>
-      <tr><td>Matched Set</td><td class="market-col">$14.00</td><td class="grade-a">$25.00</td><td class="market-col">$11.50</td><td class="grade-b">$16.00</td><td class="market-col">$2.00</td><td class="grade-c">$4.00</td></tr>
+      <tr><td>Single</td><td class="market-col mkt-elk-a">$14.00</td><td class="grade-a">$20.00</td><td class="market-col mkt-elk-b">$11.50</td><td class="grade-b">$16.00</td><td class="market-col mkt-elk-c">$2.00</td><td class="grade-c">$4.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col mkt-elk-a">$14.00</td><td class="grade-a">$25.00</td><td class="market-col mkt-elk-b">$11.50</td><td class="grade-b">$16.00</td><td class="market-col mkt-elk-c">$2.00</td><td class="grade-c">$4.00</td></tr>
     </tbody>
   </table>
   <div class="mobile-rates">
     <p class="mobile-type-label">Single</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $14.00</span><span class="mobile-sc a">SC $20.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.50</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $2.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-elk-a-mob">Mkt $14.00</span><span class="mobile-sc a">SC $20.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-elk-b-mob">Mkt $11.50</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-elk-c-mob">Mkt $2.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
     </div>
     <p class="mobile-type-label">Matched Set</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $14.00</span><span class="mobile-sc a">SC $25.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.50</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $2.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-elk-a-mob">Mkt $14.00</span><span class="mobile-sc a">SC $25.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-elk-b-mob">Mkt $11.50</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-elk-c-mob">Mkt $2.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
     </div>
   </div>
   <p class="floor-note">* Floor prices: Grade A $16/lb · Grade B $11/lb · Grade C $2/lb</p>
@@ -420,31 +129,24 @@
   <!-- MOOSE -->
   <p class="section-title">Moose</p>
   <table class="rate-table">
-    <thead>
-      <tr>
-        <th></th>
-        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
-      </tr>
-    </thead>
+    <thead><tr><th></th><th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th><th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th><th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th></tr></thead>
     <tbody>
-      <tr><td>Single</td><td class="market-col">$10.00</td><td class="grade-a">$20.00</td><td class="market-col">$7.00</td><td class="grade-b">$16.00</td><td class="market-col">$1.00</td><td class="grade-c">$4.00</td></tr>
-      <tr><td>Matched Set</td><td class="market-col">$10.00</td><td class="grade-a">$25.00</td><td class="market-col">$7.00</td><td class="grade-b">$16.00</td><td class="market-col">$1.00</td><td class="grade-c">$4.00</td></tr>
+      <tr><td>Single</td><td class="market-col mkt-moose-a">$10.00</td><td class="grade-a">$20.00</td><td class="market-col mkt-moose-b">$7.00</td><td class="grade-b">$16.00</td><td class="market-col mkt-moose-c">$1.00</td><td class="grade-c">$4.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col mkt-moose-a">$10.00</td><td class="grade-a">$25.00</td><td class="market-col mkt-moose-b">$7.00</td><td class="grade-b">$16.00</td><td class="market-col mkt-moose-c">$1.00</td><td class="grade-c">$4.00</td></tr>
     </tbody>
   </table>
   <div class="mobile-rates">
     <p class="mobile-type-label">Single</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $10.00</span><span class="mobile-sc a">SC $20.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $7.00</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-moose-a-mob">Mkt $10.00</span><span class="mobile-sc a">SC $20.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-moose-b-mob">Mkt $7.00</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-moose-c-mob">Mkt $1.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
     </div>
     <p class="mobile-type-label">Matched Set</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $10.00</span><span class="mobile-sc a">SC $25.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $7.00</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-moose-a-mob">Mkt $10.00</span><span class="mobile-sc a">SC $25.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-moose-b-mob">Mkt $7.00</span><span class="mobile-sc b">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-moose-c-mob">Mkt $1.00</span><span class="mobile-sc c">SC $4.00/lb</span></span></div>
     </div>
   </div>
   <p class="floor-note">* Floor prices: Grade A $16/lb · Grade B $11/lb · Grade C $2/lb</p>
@@ -452,31 +154,24 @@
   <!-- MULE DEER -->
   <p class="section-title">Mule Deer</p>
   <table class="rate-table">
-    <thead>
-      <tr>
-        <th></th>
-        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
-      </tr>
-    </thead>
+    <thead><tr><th></th><th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th><th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th><th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th></tr></thead>
     <tbody>
-      <tr><td>Single</td><td class="market-col">$11.00</td><td class="grade-a">$16.00</td><td class="market-col">$8.00</td><td class="grade-b">$11.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
-      <tr><td>Matched Set</td><td class="market-col">$11.00</td><td class="grade-a">$18.00</td><td class="market-col">$8.00</td><td class="grade-b">$12.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
+      <tr><td>Single</td><td class="market-col mkt-mule-a">$11.00</td><td class="grade-a">$16.00</td><td class="market-col mkt-mule-b">$8.00</td><td class="grade-b">$11.00</td><td class="market-col mkt-mule-c">$1.00</td><td class="grade-c">$3.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col mkt-mule-a">$11.00</td><td class="grade-a">$18.00</td><td class="market-col mkt-mule-b">$8.00</td><td class="grade-b">$12.00</td><td class="market-col mkt-mule-c">$1.00</td><td class="grade-c">$3.00</td></tr>
     </tbody>
   </table>
   <div class="mobile-rates">
     <p class="mobile-type-label">Single</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $16.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $11.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-mule-a-mob">Mkt $11.00</span><span class="mobile-sc a">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-mule-b-mob">Mkt $8.00</span><span class="mobile-sc b">SC $11.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-mule-c-mob">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
     </div>
     <p class="mobile-type-label">Matched Set</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $18.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $12.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-mule-a-mob">Mkt $11.00</span><span class="mobile-sc a">SC $18.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-mule-b-mob">Mkt $8.00</span><span class="mobile-sc b">SC $12.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-mule-c-mob">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
     </div>
   </div>
   <p class="floor-note">* Floor prices: Grade A $13/lb · Grade B $8/lb · Grade C $2/lb</p>
@@ -484,36 +179,28 @@
   <!-- WHITETAIL DEER -->
   <p class="section-title">Whitetail Deer</p>
   <table class="rate-table">
-    <thead>
-      <tr>
-        <th></th>
-        <th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th>
-        <th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th>
-        <th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th>
-      </tr>
-    </thead>
+    <thead><tr><th></th><th class="col-header-market">Market A</th><th class="col-header-sc">SC A</th><th class="col-header-market">Market B</th><th class="col-header-sc">SC B</th><th class="col-header-market">Market C</th><th class="col-header-sc">SC C</th></tr></thead>
     <tbody>
-      <tr><td>Single</td><td class="market-col">$11.00</td><td class="grade-a">$16.00</td><td class="market-col">$8.00</td><td class="grade-b">$11.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
-      <tr><td>Matched Set</td><td class="market-col">$11.00</td><td class="grade-a">$18.00</td><td class="market-col">$8.00</td><td class="grade-b">$12.00</td><td class="market-col">$1.00</td><td class="grade-c">$3.00</td></tr>
+      <tr><td>Single</td><td class="market-col mkt-deer-a">$11.00</td><td class="grade-a">$16.00</td><td class="market-col mkt-deer-b">$8.00</td><td class="grade-b">$11.00</td><td class="market-col mkt-deer-c">$1.00</td><td class="grade-c">$3.00</td></tr>
+      <tr><td>Matched Set</td><td class="market-col mkt-deer-a">$11.00</td><td class="grade-a">$18.00</td><td class="market-col mkt-deer-b">$8.00</td><td class="grade-b">$12.00</td><td class="market-col mkt-deer-c">$1.00</td><td class="grade-c">$3.00</td></tr>
     </tbody>
   </table>
   <div class="mobile-rates">
     <p class="mobile-type-label">Single</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $16.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $11.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-deer-a-mob">Mkt $11.00</span><span class="mobile-sc a">SC $16.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-deer-b-mob">Mkt $8.00</span><span class="mobile-sc b">SC $11.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-deer-c-mob">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
     </div>
     <p class="mobile-type-label">Matched Set</p>
     <div class="mobile-block">
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market">Mkt $11.00</span><span class="mobile-sc a">SC $18.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market">Mkt $8.00</span><span class="mobile-sc b">SC $12.00/lb</span></span></div>
-      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade A</span><span class="mobile-prices"><span class="mobile-market mkt-deer-a-mob">Mkt $11.00</span><span class="mobile-sc a">SC $18.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade B</span><span class="mobile-prices"><span class="mobile-market mkt-deer-b-mob">Mkt $8.00</span><span class="mobile-sc b">SC $12.00/lb</span></span></div>
+      <div class="mobile-grade-row"><span class="mobile-grade-label">Grade C</span><span class="mobile-prices"><span class="mobile-market mkt-deer-c-mob">Mkt $1.00</span><span class="mobile-sc c">SC $3.00/lb</span></span></div>
     </div>
   </div>
   <p class="floor-note">* Floor prices: Grade A $13/lb · Grade B $8/lb · Grade C $2/lb</p>
 
-  <!-- CONTACT -->
   <div class="contact-block">
     <p class="contact-title">Contact Us</p>
     <p class="contact-line">93 W. Main · Dubois, ID 83423</p>
@@ -521,15 +208,10 @@
     <p class="contact-line"><a href="mailto:rusticantlermarket@gmail.com">rusticantlermarket@gmail.com</a></p>
   </div>
 
-  <!-- ELIGIBILITY -->
   <div class="eligibility-block">
     <p class="eligibility-title">Collective Eligibility</p>
-    <p class="eligibility-text">
-      Participation in The Shed Collective is by invitation and approval only. Rates displayed on this page apply exclusively to approved Shed Collective members. Sellers and antlers must be located within 30 miles of Rustic Antler Market HQ in Dubois, ID to be eligible for the program. Rustic Antler Market reserves the right to approve, decline, or discontinue any consignment relationship at its sole discretion.
-    </p>
-    <p class="eligibility-text" style="margin-top: 0.8rem;">
-      For more information or to inquire about participation, please call us Monday–Friday, 9:00am–4:30pm.
-    </p>
+    <p class="eligibility-text">Participation in The Shed Collective is by invitation and approval only. Rates displayed on this page apply exclusively to approved Shed Collective members. Sellers and antlers must be located within 30 miles of Rustic Antler Market HQ in Dubois, ID to be eligible for the program. Rustic Antler Market reserves the right to approve, decline, or discontinue any consignment relationship at its sole discretion.</p>
+    <p class="eligibility-text" style="margin-top:0.8rem;">For more information or to inquire about participation, please call us Monday–Friday, 9:00am–4:30pm.</p>
   </div>
 
   <p class="footer-note">
@@ -538,5 +220,42 @@
   </p>
 
 </div>
+
+<script>
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbxHCrtXLhrFPx_oIwrDkjZKe6cxmxZGWVmtgqRyTGdjEw0S-tQZVRtp2ODziY8KQ9xW/exec';
+
+  function fmt(v) {
+    return (v !== null && v !== undefined) ? '$' + Number(v).toFixed(2) : null;
+  }
+  function setAll(cls, text) {
+    if (!text) return;
+    document.querySelectorAll('.' + cls).forEach(function(el) { el.textContent = text; });
+  }
+  function setAllMob(cls, text) {
+    if (!text) return;
+    document.querySelectorAll('.' + cls).forEach(function(el) { el.textContent = 'Mkt ' + text; });
+  }
+
+  fetch(GAS_URL + '?action=rates')
+    .then(function(r) { return r.json(); })
+    .then(function(p) {
+      setAll('mkt-elk-a',   fmt(p.elk   && p.elk.A));   setAllMob('mkt-elk-a-mob',   fmt(p.elk   && p.elk.A));
+      setAll('mkt-elk-b',   fmt(p.elk   && p.elk.B));   setAllMob('mkt-elk-b-mob',   fmt(p.elk   && p.elk.B));
+      setAll('mkt-elk-c',   fmt(p.elk   && p.elk.C));   setAllMob('mkt-elk-c-mob',   fmt(p.elk   && p.elk.C));
+      setAll('mkt-moose-a', fmt(p.moose && p.moose.A)); setAllMob('mkt-moose-a-mob', fmt(p.moose && p.moose.A));
+      setAll('mkt-moose-b', fmt(p.moose && p.moose.B)); setAllMob('mkt-moose-b-mob', fmt(p.moose && p.moose.B));
+      setAll('mkt-moose-c', fmt(p.moose && p.moose.C)); setAllMob('mkt-moose-c-mob', fmt(p.moose && p.moose.C));
+      setAll('mkt-mule-a',  fmt(p.mule  && p.mule.A));  setAllMob('mkt-mule-a-mob',  fmt(p.mule  && p.mule.A));
+      setAll('mkt-mule-b',  fmt(p.mule  && p.mule.B));  setAllMob('mkt-mule-b-mob',  fmt(p.mule  && p.mule.B));
+      setAll('mkt-mule-c',  fmt(p.mule  && p.mule.C));  setAllMob('mkt-mule-c-mob',  fmt(p.mule  && p.mule.C));
+      setAll('mkt-deer-a',  fmt(p.deer  && p.deer.A));  setAllMob('mkt-deer-a-mob',  fmt(p.deer  && p.deer.A));
+      setAll('mkt-deer-b',  fmt(p.deer  && p.deer.B));  setAllMob('mkt-deer-b-mob',  fmt(p.deer  && p.deer.B));
+      setAll('mkt-deer-c',  fmt(p.deer  && p.deer.C));  setAllMob('mkt-deer-c-mob',  fmt(p.deer  && p.deer.C));
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var d = new Date();
+      document.getElementById('rates-date').textContent = 'Rates effective ' + months[d.getMonth()] + ' ' + d.getFullYear();
+    })
+    .catch(function() { /* fetch failed — hardcoded fallback values stay */ });
+</script>
 </body>
 </html>
