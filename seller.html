@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Seller Portal — The Shed Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #EDE5D8; font-family: 'Cormorant Garamond', Georgia, serif; color: #1C1C1C; min-height: 100vh; padding: 2rem 1rem; }
+  .page { background: #F5EFE4; max-width: 760px; margin: 0 auto; border: 0.5px solid #D9CFC0; border-radius: 12px; padding: 3rem 2.5rem; }
+  .header { text-align: center; margin-bottom: 2rem; }
+  .sc-title { font-size: 15px; letter-spacing: 0.45em; color: #3B1F0C; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .ram-est { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A6450; margin-top: 0.4rem; }
+  .gold-line { width: 60px; height: 0.5px; background: #C9A84C; margin: 1.5rem auto 1rem; }
+  .page-sub { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #7A6450; }
+  /* LOGIN */
+  #login-view { max-width: 360px; margin: 0 auto; }
+  .login-label { display: block; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #3B1F0C; margin-bottom: 0.5rem; margin-top: 1.8rem; }
+  .login-input { width: 100%; padding: 0.7rem 1rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; letter-spacing: 0.12em; border: 0.5px solid #C9A84C; border-radius: 6px; background: #FDF9F3; color: #1C1C1C; text-transform: uppercase; outline: none; }
+  .login-input:focus { border-color: #3B1F0C; }
+  .login-btn { width: 100%; margin-top: 1.2rem; padding: 0.85rem; background: #3B1F0C; color: #FDF9F3; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; }
+  .login-btn:hover { background: #5C3317; }
+  .login-error { margin-top: 0.8rem; font-size: 14px; color: #8B0000; font-style: italic; text-align: center; display: none; }
+  /* DASHBOARD */
+  #dashboard-view { display: none; }
+  .welcome { font-size: 22px; font-weight: 500; color: #3B1F0C; margin-bottom: 0.3rem; }
+  .welcome-sub { font-size: 14px; color: #7A6450; font-style: italic; margin-bottom: 2rem; }
+  .section-title { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #3B1F0C; font-weight: 500; margin: 2rem 0 0.8rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid #C9A84C; }
+  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+  .summary-card { background: #EDE5D8; border: 0.5px solid #D9CFC0; border-radius: 8px; padding: 1rem; text-align: center; }
+  .summary-num { font-size: 28px; font-weight: 500; color: #3B1F0C; line-height: 1; }
+  .summary-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A6450; margin-top: 0.3rem; }
+  .antler-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .antler-table th { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #7A6450; font-weight: 600; padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid #C9A84C; }
+  .antler-table td { padding: 0.65rem 0.6rem; border-bottom: 0.5px solid #EDE5D8; color: #3B1F0C; font-size: 15px; vertical-align: middle; }
+  .antler-table tr:last-child td { border-bottom: none; }
+  .status-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 12px; letter-spacing: 0.08em; font-weight: 500; }
+  .status-pending { background: #FFF3CD; color: #856404; }
+  .status-sold { background: #D4EDDA; color: #155724; }
+  .status-other { background: #EDE5D8; color: #5C4A38; }
+  .payout-val { font-weight: 600; color: #3B1F0C; }
+  .no-items { text-align: center; color: #9E8F82; font-style: italic; padding: 2rem 0; }
+  .contact-block { margin-top: 2.5rem; padding: 1.2rem 1.5rem; background: #EDE5D8; border: 0.5px solid #D9CFC0; border-radius: 8px; font-size: 14px; color: #5C4A38; line-height: 1.8; }
+  .contact-block strong { display: block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #3B1F0C; margin-bottom: 0.4rem; }
+  .contact-block a { color: #5C4A38; }
+  .logout-btn { display: block; margin: 2rem auto 0; padding: 0.6rem 1.8rem; background: transparent; border: 0.5px solid #C9A84C; border-radius: 6px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A6450; cursor: pointer; }
+  .logout-btn:hover { background: #EDE5D8; }
+  @media (max-width: 560px) {
+    .page { padding: 2rem 1rem; }
+    .antler-table th, .antler-table td { padding: 0.5rem 0.3rem; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <p class="sc-title">The Shed Collective</p>
+    <img src="ram-logo.png" alt="Rustic Antler Market" style="width:160px;height:auto;display:block;margin:1rem auto 0.3rem;" />
+    <p class="ram-est">Est. 2025 &nbsp;|&nbsp; Dubois, ID</p>
+    <div class="gold-line"></div>
+    <p class="page-sub">Seller Portal</p>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="login-view">
+    <label class="login-label" for="codeInput">Enter Your Access Code</label>
+    <input class="login-input" type="text" id="codeInput" placeholder="e.g. MAY6606" autocomplete="off" />
+    <button class="login-btn" onclick="doLogin()">View My Inventory</button>
+    <p class="login-error" id="loginError">Invalid access code. Please try again or call (208) 374-5226.</p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard-view">
+    <p class="welcome" id="welcomeName"></p>
+    <p class="welcome-sub">Here's a summary of your consigned antlers.</p>
+
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-num" id="sumTotal">—</div><div class="summary-label">Total Items</div></div>
+      <div class="summary-card"><div class="summary-num" id="sumPending">—</div><div class="summary-label">Pending</div></div>
+      <div class="summary-card"><div class="summary-num" id="sumSold">—</div><div class="summary-label">Sold</div></div>
+    </div>
+
+    <p class="section-title">Your Antlers</p>
+    <table class="antler-table">
+      <thead>
+        <tr>
+          <th>SKU</th><th>Species</th><th>Grade</th><th>Weight</th><th>SC Payout</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="antlerRows"></tbody>
+    </table>
+    <p class="no-items" id="noItems" style="display:none;">No antlers on file yet.</p>
+
+    <div class="contact-block">
+      <strong>Questions?</strong>
+      93 W. Main · Dubois, ID 83423<br />
+      <a href="tel:2083745226">(208) 374-5226</a> &nbsp;·&nbsp; Mon–Fri 9am–4:30pm<br />
+      Stop by or call to arrange payout pickup after your antlers sell.
+    </div>
+
+    <button class="logout-btn" onclick="doLogout()">Sign Out</button>
+  </div>
+
+</div>
+<script>
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbxHCrtXLhrFPx_oIwrDkjZKe6cxmxZGWVmtgqRyTGdjEw0S-tQZVRtp2ODziY8KQ9xW/exec';
+
+  document.getElementById('codeInput').addEventListener('input', function() {
+    var pos = this.selectionStart;
+    this.value = this.value.toUpperCase();
+    this.setSelectionRange(pos, pos);
+  });
+
+  document.getElementById('codeInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  function doLogin() {
+    var code = document.getElementById('codeInput').value.trim().toUpperCase();
+    if (!code) return;
+    document.getElementById('loginError').style.display = 'none';
+    var btn = document.querySelector('.login-btn');
+    btn.textContent = 'Loading...';
+    btn.disabled = true;
+
+    fetch(GAS_URL + '?action=seller&code=' + encodeURIComponent(code))
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        btn.textContent = 'View My Inventory';
+        btn.disabled = false;
+        if (data.error) {
+          document.getElementById('loginError').style.display = 'block';
+          return;
+        }
+        showDashboard(data);
+      })
+      .catch(function() {
+        btn.textContent = 'View My Inventory';
+        btn.disabled = false;
+        document.getElementById('loginError').style.display = 'block';
+      });
+  }
+
+  function showDashboard(data) {
+    document.getElementById('login-view').style.display = 'none';
+    document.getElementById('dashboard-view').style.display = 'block';
+    document.getElementById('welcomeName').textContent = 'Welcome, ' + data.name;
+
+    var items = data.items || [];
+    var pending = items.filter(function(i) { return (i.status || '').toLowerCase() !== 'sold'; }).length;
+    var sold    = items.filter(function(i) { return (i.status || '').toLowerCase() === 'sold'; }).length;
+
+    document.getElementById('sumTotal').textContent   = items.length;
+    document.getElementById('sumPending').textContent = pending;
+    document.getElementById('sumSold').textContent    = sold;
+
+    var tbody = document.getElementById('antlerRows');
+    tbody.innerHTML = '';
+
+    if (items.length === 0) {
+      document.getElementById('noItems').style.display = 'block';
+      return;
+    }
+
+    items.forEach(function(item) {
+      var statusText  = item.status || 'Pending';
+      var statusClass = statusText.toLowerCase() === 'sold'    ? 'status-sold'
+                      : statusText.toLowerCase() === 'pending' ? 'status-pending'
+                      : 'status-other';
+      var payout = item.scPayout ? '$' + Number(item.scPayout).toFixed(2) + '/lb' : '—';
+      var weight = item.weight   ? Number(item.weight).toFixed(2) + ' lbs'        : '—';
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + (item.sku     || '—') + '</td>' +
+        '<td>' + (item.species || '—') + '</td>' +
+        '<td>' + (item.grade   || '—') + '</td>' +
+        '<td>' + weight + '</td>' +
+        '<td class="payout-val">' + payout + '</td>' +
+        '<td><span class="status-badge ' + statusClass + '">' + statusText + '</span></td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  function doLogout() {
+    document.getElementById('dashboard-view').style.display = 'none';
+    document.getElementById('login-view').style.display = 'block';
+    document.getElementById('codeInput').value = '';
+    document.getElementById('loginError').style.display = 'none';
+  }
+</script>
+</body>
+</html>
